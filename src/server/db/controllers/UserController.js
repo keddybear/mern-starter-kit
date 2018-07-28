@@ -33,6 +33,10 @@ const handleDefaultError = (err, req, res) => {
 const createUser = async (req, res) => {
 	const { username, email, password } = req.body;
 
+	// Check for duplicates
+	const countUsername = () => User.count({ username }).exec();
+	const countEmail = () => User.count({ email }).exec();
+
 	// hash password
 	const genSalt = rounds => new Promise((resolve, reject) => {
 		bcrypt.genSalt(rounds, (error, salt) => {
@@ -55,6 +59,23 @@ const createUser = async (req, res) => {
 	});
 
 	try {
+		const nameCount = await countUsername();
+		const emailCount = await countEmail();
+		if (nameCount > 0 || emailCount > 0) {
+			const taken = {
+				name: 'ValidationError',
+				errors: {
+					username: {
+						message: nameCount ? 'Taken' : null
+					},
+					email: {
+						message: emailCount ? 'Taken' : null
+					}
+				}
+			};
+			throw taken;
+		}
+
 		const salt = await genSalt(10);
 		const hpassword = await hashPassword(salt, password);
 
@@ -113,7 +134,7 @@ const authUser = async (req, res) => {
 	});
 
 	try {
-		const myUser = await getUser();
+		const myUser = await getUser(); // not found -> null
 		let match = false;
 		if (myUser) {
 			match = await checkPass(password, myUser.password);

@@ -99,9 +99,9 @@ class Form extends Component {
 					if (data.response === 'ValidationError') {
 						const { extra } = data;
 						reject(new SubmissionError({
-							username: extra.username.message,
-							email: extra.email.message,
-							password: extra.email.message
+							username: extra.username ? extra.username.message : null,
+							email: extra.email ? extra.email.message : null,
+							password: extra.password ? extra.password.message : null
 						}));
 						return;
 					} else if (data.response !== 'success') {
