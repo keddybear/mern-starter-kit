@@ -13,7 +13,7 @@ Login and Signup forms are created with Redux Form.
 [GreenSock-JS](https://github.com/greensock/GreenSock-JS)  
 GreenSock is used to simulate some of Material Design animations, such as ripple effect.
 
-[Demo]()
+### [Demo]()
 
 # Thanks
 Thanks @crsandeep for the boilerplate: [simple-react-full-stack](https://github.com/crsandeep/simple-react-full-stack)
