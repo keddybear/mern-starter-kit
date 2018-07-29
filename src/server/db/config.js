@@ -4,7 +4,7 @@ module.exports = (function () {
 		case 'development':
 		default:
 			return {
-				url: 'Your MongoDB URL'
+				url: process.env.DB_DEV_URL
 			};
 		// Production
 		case 'production':
