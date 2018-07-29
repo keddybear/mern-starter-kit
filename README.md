@@ -16,7 +16,7 @@ GreenSock is used to simulate some of Material Design animations, such as ripple
 [Redis](https://redis.io/)  
 User session is stored in Redis, including CSRF token.
 
-### [Demo]()
+### [Demo](https://mern-starter-kit.herokuapp.com/)
 
 # Thanks
 Thanks @crsandeep for the boilerplate: [simple-react-full-stack](https://github.com/crsandeep/simple-react-full-stack)
