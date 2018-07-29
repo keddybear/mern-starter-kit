@@ -13,7 +13,7 @@ Login and Signup forms are created with Redux Form.
 [GreenSock-JS](https://github.com/greensock/GreenSock-JS)  
 GreenSock is used to simulate some of Material Design animations, such as ripple effect.
 
-[Redis](https://redis.io/)
+[Redis](https://redis.io/)  
 User session is stored Redis, including CSRF token.
 
 ### [Demo]()
