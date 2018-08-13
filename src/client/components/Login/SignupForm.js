@@ -6,6 +6,7 @@ import { Field, reduxForm, SubmissionError, reducer as formReducer } from 'redux
 // import _ from 'lodash';
 
 import { POST } from 'helpers/ajax';
+import { smoothEnter } from 'helpers/animations';
 
 // Component
 import Ripple from 'components/Effects/Ripple/Index';
@@ -115,11 +116,15 @@ class Form extends Component {
 		});
 	}
 
+	componentDidMount() {
+		smoothEnter(this.root);
+	}
+
 	render() {
 		const { handleSubmit, submitting } = this.props;
 		const { submitHandler } = this;
 		return (
-			<div className='rblock login-ui smoothEnter'>
+			<div className='rblock login-ui' ref={(node) => { this.root = node; }}>
 				<form onSubmit={handleSubmit(values => submitHandler(values))} >
 					<Field
 						name='username'

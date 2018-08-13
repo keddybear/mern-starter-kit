@@ -1,6 +1,7 @@
 import React from 'react';
 import withAuth from 'components/HOC/Authentication';
 import { POST } from 'helpers/ajax';
+import { smoothEnter } from 'helpers/animations';
 
 class Welcome extends React.Component {
 	constructor(props) {
@@ -20,9 +21,13 @@ class Welcome extends React.Component {
 		};
 	}
 
+	componentDidMount() {
+		smoothEnter(this.root);
+	}
+
 	render() {
 		return (
-			<div>
+			<div ref={(node) => { this.root = node; }}>
 				<h1
 					style={{
 						color: '#9290ff',

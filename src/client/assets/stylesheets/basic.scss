@@ -85,6 +85,11 @@ a {
 	to {opacity: 1;}
 }
 
+.slat {
+	transform: skewX(-30deg);
+	background-color: $color-default-1;
+}
+
 //== Font face
 //
 // # Open Sans
