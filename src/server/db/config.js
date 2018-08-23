@@ -9,7 +9,12 @@ module.exports = (function () {
 		// Production
 		case 'production':
 			return {
-				url: null
+				url: process.env.MONGODB_URI
+			};
+		// Test
+		case 'test':
+			return {
+				url: process.env.DB_TEST_URL
 			};
 	}
 }());
