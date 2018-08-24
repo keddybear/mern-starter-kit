@@ -56,7 +56,6 @@ describe(appName, function() {
 			.set('Content-Type', 'application/json')
 			.expect('Content-Type', /json/)
 			.expect(200, function(err, res) {
-				console.log(res.body);
 				if (err) {
 					done(err);
 					return;
