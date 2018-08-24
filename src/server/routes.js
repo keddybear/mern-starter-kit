@@ -1,7 +1,7 @@
 const express 		= require('express');
 const path			= require('path');
 const bodyParser 	= require('body-parser');
-const csurf			= require('csurf');
+const csurf	= require('csurf');
 
 const router = express.Router();
 
