@@ -1,4 +1,4 @@
-# mern-starter-kit
+# mern-starter-kit [![Status](https://travis-ci.com/keddybear/mern-starter-kit.svg?branch=master)](https://travis-ci.com/keddybear/mern-starter-kit)  
 Starter kit for future javascript project, using React Redux, Node.js, Express, Webpack, MangoDB, and Redis.
 
 # Features
