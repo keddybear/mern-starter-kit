@@ -11,25 +11,27 @@ const port = 8080;
 
 describe(appName, function() {
 	let app;
+	let agent; // To persist session
+	let server; // To close server
 	let skip = false;
+	let csrfToken;
 
-	// // Create Express server before testing
-	// before(function(done) {
-	// 	app = create();
-	// 	app.listen(port, (err) => {
-	// 		if (err) {
-	// 			done(err);
-	// 			return;
-	// 		}
-	// 		done();
-	// 	});
-	// });
-
-	before('before', function(done) {
-		done();
+	// Create Express server before testing
+	before(function(done) {
+		app = create();
+		server = app.listen(port, (err) => {
+			if (err) {
+				done(err);
+				return;
+			}
+			done();
+		});
+		agent = request.agent(app);
 	});
-
-	after('after', function(done) {
+	
+	// Close Express server after testing
+	after(function(done) {
+		server.close();
 		done();
 	});
 
@@ -48,27 +50,49 @@ describe(appName, function() {
 		done();
 	});
 
-	it('This test should not run', function(done) {
-		done();
+	it('GET /api/session should send back a JSON object containing current session csrf token', function(done) {
+		agent
+			.get('/api/session')
+			.set('Content-Type', 'application/json')
+			.expect('Content-Type', /json/)
+			.expect(200, function(err, res) {
+				console.log(res.body);
+				if (err) {
+					done(err);
+					return;
+				}
+				const { state: { csrf } } = res.body;
+
+				expect(csrf)
+					.to.exist
+					.to.be.a('string');
+
+				csrfToken = csrf; 
+				done();
+			});
 	});
 
-	// it('/api/session should send back a JSON object containing current session info', function(done) {
-	// 	request(app)
-	// 		.get('/api/session')
-	// 		.set('Content-Type', 'application/json')
-	// 		.expect('Content-Type', /json/)
-	// 		.expect(200, function(err, res) {
-	// 			if (err) {
-	// 				done(err);
-	// 				return;
-	// 			}
-	// 			const { csrf } = res.body;
-	// 			expect(csrf)
-	// 				.to.exist
-	// 				.to.be.a('string');
-	// 			done();
-	// 		});
-	// });
+	it('GET /api/session again should send back the same csrf token', function(done) {
+		agent
+			.get('/api/session')
+			.set('Content-Type', 'application/json')
+			.expect('Content-Type', /json/)
+			.expect(200, function(err, res) {
+				if (err) {
+					done(err);
+					return;
+				}
+				const { state: { csrf } } = res.body;
+
+				expect(csrf)
+					.to.exist
+					.to.be.a('string');
+				expect(csrfToken)
+					.to.equal(csrf);
+
+				done();
+			});
+	});
 
 	// User
 	// describe('Users', function() {
