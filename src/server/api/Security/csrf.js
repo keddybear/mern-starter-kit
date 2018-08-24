@@ -32,7 +32,7 @@ const getSession = (req, res) => {
 	if (req.session.user) {
 		state.auth = req.session.user;
 	}
-	res.status(201).json({ response: 'success',	state });
+	res.status(200).json({ response: 'success',	state });
 };
 
 module.exports = {
