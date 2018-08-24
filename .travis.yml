@@ -6,10 +6,3 @@ cache:
   - node_modules
 script:
 - npm run ci-test
-deploy:
-  provider: heroku
-  api_key:
-    secure: lArq92W7ix7LFvvpoSUgz/iTIZGUJur6hDLbAz24OdzK8sgwCGAwOLdTY3/7vlfE8BE6FM+VLSBn9CXeLBNhytNHkx0AtfKb1XvD6gXA07va9TPoll35irZlWwZ5MQ6WqlMzr/5yZpscGTnY3Ys9jvevljNeMuO4G2F8fcJ6n77MFG4ugJXe4YU6OZzaG3SmlujpO1WrhKe+uz/9P2wbU1kwN2oFlVnUqgSLhAj8cbJctVayk/UlKtUXiINZw6+bw6OMPo+neDIvbvzv6/5ULF1/OwwBurY63SjCL+s0xq/CeM7RM3znDvmPRy1ju7kWUJCgI8hypYDLqwOEp2FE9yFwwOsKdO0DynB5DrbYYBZmmDTyVawOHlSSBzxC6/3dKNQUzfg6OM5Bb3C9soQm0MQajW/11vg0t6FcvQKr+4IE/agkGRdF/s1GXW1UCOTLKYyAMlhhFNpwF6gX3oNERMPnvMiAR2BsHLQXYFBBDpul25ruCr+u4LaHHcM5QVJLeNFmrJSFQ+XwUMtO/V0T0orNLCyVnjefotSWnGiA3sje/kjcUlwwUgQeSctJA/2CPSC2esLxL6Dwx4Uz4IGIrR6zMSoaX6re/zCcJaqfn8pcm6xLNO6/6LiJjxx8pIeOfpSs85TNgqP0Fpu00KPNu0fINix55131I6w2GA0OpAM=
-  app: mern-starter-kit
-  on:
-    repo: keddybear/mern-starter-kit
