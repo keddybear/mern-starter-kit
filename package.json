@@ -4,7 +4,8 @@
   "description": "Starter kit for full stack javascript web app, using React Redux, Node.js, Express, Webpack, MangoDB, and Redis.",
   "main": "src/server/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require babel-core/register --require babel-polyfill test/test.js || exit 0",
+    "ci-test": "mocha --require babel-core/register --require babel-polyfill test/test.js",
     "start": "node src/server/index.js",
     "build": "webpack --mode production",
     "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build",
