@@ -7,7 +7,7 @@ const create 		= require('../src/server/create');
 // const db 			= require('./db/connect');
 
 const appName = 'MERN-STARTER-KIT';
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 describe(appName, function() {
 	let app;

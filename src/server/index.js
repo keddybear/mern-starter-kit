@@ -4,7 +4,7 @@ const create 	= require('./create');
 const db 		= require('./db/connect');
 
 const app = create();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
 
