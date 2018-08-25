@@ -16,5 +16,6 @@ module.exports = (function () {
 			return {
 				url: process.env.DB_TEST_URL
 			};
+		// ...
 	}
 }());
