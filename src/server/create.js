@@ -45,11 +45,6 @@ const create = () => {
 		next();
 	});
 
-	app.get('*.svg', (req, res, next) => {
-		res.set('Content-Encoding', 'gzip');
-		next();
-	});
-
 	app.use(express.static('dist'));
 
 	app.use('/api', routes);
