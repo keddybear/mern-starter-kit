@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const outputDir = 'dist';
 
@@ -57,6 +59,16 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './public/index.html',
 			favicon: './public/favicon.ico'
+		}),
+		new UglifyJsPlugin({
+			exclude: [/\.min\.js$/gi]
+		}),
+		new CompressionPlugin({
+			asset: '[path].gz[query]',
+			algorithm: 'gzip',
+			test: /\.js$|\.css$|\.html$/,
+			threshold: 10240,
+			minRatio: 0.8
 		})
 	]
 };

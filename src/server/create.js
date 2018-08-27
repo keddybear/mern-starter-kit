@@ -40,6 +40,12 @@ const create = () => {
 	app.use(express.static('dist'));
 
 	// Routing
+	app.get('*.js', (req, res, next) => {
+		req.url = `${req.url}.gz`;
+		res.set('Content-Encoding', 'gzip');
+		next();
+	});
+
 	app.use('/api', routes);
 
 	return app;
