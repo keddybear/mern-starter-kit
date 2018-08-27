@@ -1,6 +1,7 @@
 const express 		= require('express');
 const session 		= require('express-session');
 const RedisStore 	= require('connect-redis')(session);
+const path 			= require('path');
 
 const routes 		= require('./routes');
 const conf 			= require('./config');
@@ -37,8 +38,6 @@ const create = () => {
 		next();
 	});
 
-	app.use(express.static('dist'));
-
 	// Routing
 	app.get('*.js', (req, res, next) => {
 		req.url = `${req.url}.gz`;
@@ -46,7 +45,22 @@ const create = () => {
 		next();
 	});
 
+	app.get('*.svg', (req, res, next) => {
+		res.set('Content-Encoding', 'gzip');
+		next();
+	});
+
+	app.use(express.static('dist'));
+
 	app.use('/api', routes);
+
+	app.get('/*', (req, res) => {
+		res.sendFile(path.resolve('dist/index.html'), (err) => {
+			if (err) {
+				res.status(500).send(err);
+			}
+		});
+	});
 
 	return app;
 };
