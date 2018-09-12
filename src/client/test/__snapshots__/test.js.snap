@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Login/Signup Button 1`] = `
+<div>
+  <div
+    className="de-btn-active"
+  >
+    <span>
+      Log In
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Toggle Login/Signup Button 2`] = `
+<div>
+  <div
+    className="de-btn"
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    <span>
+      Log In
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Toggle Login/Signup Button 3`] = `
+<div>
+  <div
+    className="de-btn"
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    <span>
+      Log In
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Toggle Login/Signup Button 4`] = `
+<div>
+  <div
+    className="de-btn-active"
+  >
+    <span>
+      Sign Up
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Toggle Login/Signup Button 5`] = `
+<div>
+  <div
+    className="de-btn"
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    <span>
+      Sign Up
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Toggle Login/Signup Button 6`] = `
+<div>
+  <div
+    className="de-btn"
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
+  >
+    <span>
+      Sign Up
+    </span>
+  </div>
+</div>
+`;

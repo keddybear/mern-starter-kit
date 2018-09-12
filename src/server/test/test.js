@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const { expect }	= require('chai');
 const request 		= require('supertest');
-const create 		= require('../src/server/create');
+const create 		= require('../create');
 // const db 			= require('./db/connect');
 
 const appName = 'MERN-STARTER-KIT';
@@ -92,40 +92,4 @@ describe(appName, function() {
 				done();
 			});
 	});
-
-	// User
-	// describe('Users', function() {
-	// 	let User;
-
-	// 	// Before testing, connect to mongodb
-	// 	before(function(done) {
-
-	// 	});
-
-	// 	// After testing, disconnect from mongodb
-	// 	after(function(done) {
-
-	// 	});
-	// })
-
 });
-
-/*
-	1. Register a new user
-	2. Should be authenticated
-*/
-
-/*
-	1. Log out
-	2. Should be unauthenticated
-*/
-
-/*
-	1. Register a new user with the same username
-	2. Registration should fail
-*/
-
-/*
-	1. Log in
-	2. Should be authenticated
-*/

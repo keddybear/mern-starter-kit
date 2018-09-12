@@ -15,7 +15,7 @@ function isReactElement(suspectedElement) {
 	return isElem;
 }
 
-export function shallowEqual(thisProps, nextProps, ignored = []) {
+function shallowEqual(thisProps, nextProps, ignored = []) {
 	let equals = false;
 	if (thisProps === nextProps) {
 		equals = true;
@@ -34,3 +34,7 @@ export function shallowEqual(thisProps, nextProps, ignored = []) {
 	}
 	return equals;
 }
+
+export {
+	shallowEqual
+};

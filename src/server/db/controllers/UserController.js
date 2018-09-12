@@ -145,7 +145,7 @@ const authUser = async (req, res) => {
 				id: myUser.id,
 				username: myUser.username
 			};
-			res.status(201).json({
+			res.status(200).json({
 				response: 'success',
 				name: '',
 				url: req.url,

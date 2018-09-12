@@ -2,8 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { shallowEqual } from 'helpers/shallowEqual';
 
-import LoginButton from './LoginButton';
-import SignupButton from './SignupButton';
+import Button from './Button';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import NotImplemented from './NotImplemented';
@@ -40,6 +39,9 @@ class App extends React.Component {
 				this.setState({ display: i });
 			}
 		};
+		this.toLogin = () => this.setDisplay(1);
+		this.toSignup = () => this.setDisplay(2);
+		this.toRecover = () => this.setDisplay(3);
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -60,7 +62,7 @@ class App extends React.Component {
 		let form;
 
 		if (this.state.display === 1) {
-			form = <LoginForm toRecover={() => this.setDisplay(3)} global={global} />;
+			form = <LoginForm toRecover={this.toRecover} global={global} />;
 		} else if (this.state.display === 2) {
 			form = <SignupForm global={global} />;
 		} else if (this.state.display === 3) {
@@ -71,10 +73,10 @@ class App extends React.Component {
 			<div>
 				<div className='rblock login-ops'>
 					<div className='col-abs-6'>
-						<LoginButton showLogin={this.state.display} toLogin={() => this.setDisplay(1)} />
+						<Button isLogin showLogin={this.state.display} onClick={this.toLogin} />
 					</div>
 					<div className='col-abs-6'>
-						<SignupButton showLogin={this.state.display} toSignup={() => this.setDisplay(2)} />
+						<Button isLogin={false} showLogin={this.state.display} onClick={this.toSignup} />
 					</div>
 				</div>
 				{ form }

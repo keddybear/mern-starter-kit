@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { smoothEnter } from 'helpers/animations';
+import { assign } from 'helpers/misc';
 
 class TOS extends React.Component {
 	componentDidMount() {
@@ -9,7 +10,7 @@ class TOS extends React.Component {
 
 	render() {
 		return (
-			<div ref={(node) => { this.root = node; }}>
+			<div ref={assign(this, 'root')}>
 				<div
 					style={{
 						color: '#9290ff',

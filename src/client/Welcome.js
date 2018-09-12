@@ -2,6 +2,7 @@ import React from 'react';
 import withAuth from 'components/HOC/Authentication';
 import { POST } from 'helpers/ajax';
 import { smoothEnter } from 'helpers/animations';
+import { assign } from 'helpers/misc';
 
 class Welcome extends React.Component {
 	constructor(props) {
@@ -27,7 +28,7 @@ class Welcome extends React.Component {
 
 	render() {
 		return (
-			<div ref={(node) => { this.root = node; }}>
+			<div ref={assign(this, 'root')}>
 				<h1
 					style={{
 						color: '#9290ff',
